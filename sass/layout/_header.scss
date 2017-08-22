@@ -1,0 +1,44 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  border-top: 14px solid $red;
+
+  padding: 2rem;
+
+  &-content {
+   display: flex;
+   align-items: center;
+  }
+
+  &-titles {
+  }
+      
+  &-title {
+    margin: 0;
+    width: 200px;
+  }
+
+  &-title-link {
+    color: #111111;
+    font: 1.5em 'Playfair Display', serif;
+    letter-spacing: .075em;
+    line-height: .9;
+    text-decoration: none;
+  }
+
+  &-description {
+    color: $red;
+    font-size: .8em;
+    letter-spacing: .05em;
+    line-height: 1.5;
+    text-transform: uppercase;
+
+    margin: 0;
+  }
+
+  &-icon {
+    width: 140px;
+    max-height: 140px;
+  }
+}

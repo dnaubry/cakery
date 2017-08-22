@@ -1,0 +1,27 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<section class="article-content page-home">
+        <div class="page-home-description">
+          {{post.description|wpautop}}
+        </div>
+        <div class="page-home-contact">
+          <div class="address contact-field">
+            <h3 class="contact-title">Address</h3>
+            {{post.address|wpautop}}
+          </div>
+          <div class="phone contact-field">
+            <h3 class="contact-title">Phone Number</h3>          
+            {{post.phone_number|wpautop}}
+          </div>
+          <div class="hours contact-field">
+            <h3 class="contact-title">Hours</h3>          
+            {{post.hours|wpautop}}
+          </div>
+        </div>
+			</section>
+		</article>
+	</div><!-- /content-wrapper -->
+{% endblock %}
