@@ -11,15 +11,15 @@ gulp.task('watch', function () {
         }
     });
 
-    watch('./**/*.php, ./**/*.twig', function () {
+    watch('./*.php, ./templates/**/*.twig', function () {
         browserSync.reload();
     });
 
-    watch('./sass/**/*.scss', function () {
+    watch('./static/sass/**/*.scss', function () {
         gulp.start('cssInject');
     });
 
-    watch('./scripts/**/*.js', function() {
+    watch('./static/**/*.js', function() {
         gulp.start('scriptsRefresh');
     });
 });
@@ -29,6 +29,6 @@ gulp.task('cssInject', ['styles'], function () {
     .pipe(browserSync.stream());
 });
 
-gulp.task('scriptsRefresh', ['scripts'], function() {
+gulp.task('scriptsRefresh', function() {
     browserSync.reload();
 });
