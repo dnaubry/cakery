@@ -2,3 +2,6 @@ vendor
 wp-content
 
 /node_modules
+/theme
+/cakery-theme
+/cakery-theme.zip
