@@ -1,0 +1,13 @@
+{% if menu %}
+	<ul>
+	{% for item in menu %}
+		<li class="{{ item.classes | join(' ') }}">
+			<a target="{{ item.target }}" href="{{ item.link }}">
+        <i class="{{ item.icon }}" aria-hidden="true"></i>
+        <span class="screen-reader-text">{{ item.title }}</span>
+      </a>
+			{% include "menu-social.twig" with {'menu': item.get_children} %}
+		</li>
+	{% endfor %}
+	</ul>
+{% endif %}
