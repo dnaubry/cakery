@@ -1,0 +1,28 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<div class="content-wrapper">
+		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+			<section class="article-content">
+				<h1 class="article-h1">{{post.title}}</h1>
+				<div class="article-body">
+					{{post.content}}
+				</div>
+			</section>
+			{% if menus %}
+				<ul class="menu-type-list">			
+				{% for menu in menus %}
+					<li class="menu-type-item" data-type="{{menu.name}}">{{menu.name}}</li>
+				{% endfor %}
+				</ul>				
+				{% for menu in menus %}
+					<table class="menu-food-drink hidden" data-type="{{menu.name}}">
+						<caption class="table-caption">{{menu.name}}</caption>
+							{% for post in menu.get_posts({'orderby' : 'name', 'order' : 'ASC'}) %}
+								{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+							{% endfor %}
+					</table>							
+      	{% endfor %}
+			{% endif %}
+	</div><!-- /content-wrapper -->
+{% endblock %}
