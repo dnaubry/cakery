@@ -1,0 +1,14 @@
+<tr class="tease tease-{{post.post_type}}">
+	<td class="menu-item-name">{{post.name}}</td>
+	{% if post.price_number %}
+		<td class="menu-item-price">${{post.price_number}}</td>
+	{% endif %}
+	{% if post.price_text %}
+		<td class="menu-item-price">${{post.price_text}}</td>
+	{% endif %}
+</tr>
+{% if post.description %}
+<tr>
+	<td class="menu-item-description">{{post.description}}</td>
+</tr>
+{% endif %}
