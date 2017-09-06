@@ -22,7 +22,6 @@ class StarterSite extends TimberSite {
 		add_theme_support( 'menus' );
 		add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
-		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
 		parent::__construct();
@@ -30,56 +29,66 @@ class StarterSite extends TimberSite {
 
 	function register_post_types() {
 		//this is where you can register custom post 
-		register_post_type( 'recipes',
-			array(
-				'labels' => array(
-					'name' => __( 'Recipes' ),
-					'singular_name' => __( 'Recipe' )
-				),
-				'public' => true,
-				'has_archive' => true,
-				'supports' => array('title', 'editor', 'thumbnail'),
-			)
-		);
-		
-		register_post_type( 'menu',
-		array(
-			'labels' => array(
-				'name' => __( 'Menus' ),
-				'singular_name' => __( 'Menu' )
-			),
-			'public' => true,
+		register_post_type( 'cky_menu_item',
+    array(
+      'labels' => array(
+        'name' => __( 'Menu Items' ),
+        'singular_name' => __( 'Menu Item' )
+      ),
+      'public' => true,
 			'has_archive' => true,
-			'supports' => array('title', 'editor', 'thumbnail'),
-		)
-	);
+    )
+  );
 	}
 
 	function register_taxonomies() {
 		//this is where you can register custom taxonomies
+		$labels = array(
+			'name'              => _x( 'Menu Types', 'taxonomy general name', 'textdomain' ),
+			'singular_name'     => _x( 'Menu Type', 'taxonomy singular name', 'textdomain' ),
+			'search_items'      => __( 'Search Menu Types', 'textdomain' ),
+			'all_items'         => __( 'All Menu Types', 'textdomain' ),
+			'edit_item'         => __( 'Edit Menu Type', 'textdomain' ),
+			'update_item'       => __( 'Update Menu Type', 'textdomain' ),
+			'add_new_item'      => __( 'Add New Menu Type', 'textdomain' ),
+			'new_item_name'     => __( 'New Menu Type Name', 'textdomain' ),
+			'menu_name'         => __( 'Menu Types', 'textdomain' ),
+		);
+
+		$args = array(
+			'hierarchical'      => true,
+			'labels'            => $labels,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'query_var'         => true,
+			'rewrite'           => array( 'slug' => 'menu_type' ),
+		);
+
+		register_taxonomy( 'cky_menu_type', array( 'cky_menu_item' ), $args );
+
 	}
 
 	function add_to_context( $context ) {
-		$context['foo'] = 'bar';
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::get_context();';
-		$context['menu'] = new TimberMenu();
+		$context['top_menu'] = new TimberMenu("Top Menu");
+		$context['footer_menu'] = new TimberMenu("Social Media Menu");
 		$context['site'] = $this;
 		return $context;
 	}
-
-	function myfoo( $text ) {
-		$text .= ' bar!';
-		return $text;
-	}
-
-	function add_to_twig( $twig ) {
-		/* this is where you can add your own functions to twig */
-		$twig->addExtension( new Twig_Extension_StringLoader() );
-		$twig->addFilter('myfoo', new Twig_SimpleFilter('myfoo', array($this, 'myfoo')));
-		return $twig;
-	}
-
 }
 
 new StarterSite();
+
+ /* Register sidebar */
+ function cky_widgets_init() {
+	
+			register_sidebar( array(
+					'name'          => 'Archive Sidebar',
+					'id'            => 'archive_sidebar',
+					'before_widget' => '<div class="widget">',
+					'after_widget'  => '</div>',
+					'before_title'  => '<h4>',
+					'after_title'   => '</h4>',
+			) );
+	
+	}
+	add_action( 'widgets_init', 'cky_widgets_init' );
