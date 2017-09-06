@@ -1,0 +1,11 @@
+{% if menu %}
+	<ul class="menu-mobile">
+    <li class="menu-mobile-close menu-item"><i class="fa-close"></i><span>Close</span></li>	    
+	{% for item in menu %}
+		<li class="{{ item.classes | join(' ') }}">
+			<a target="{{ item.target }}" href="{{ item.link }}">{{ item.title }}</a>
+			{% include "menu-mobile.twig" with {'menu': item.get_children} %}
+		</li>
+	{% endfor %}
+	</ul>
+{% endif %}
