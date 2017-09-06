@@ -7,43 +7,53 @@
 {% endblock %}
 
 	<body class="{{body_class}}" data-template="base.twig">
-		<header class="header">
-			{% block header %}
-					<div class="header-content">
-						<img class="header-icon" src="{{site.theme.path}}/images/the-cakery-icon.png" alt="The Cakery - An Organic Bakery" />
-						<div class="header-titles">
-							<h1 class="header-title" role="banner">
-								<a class="header-title-link" href="{{site.url}}" rel="home">{{site.name}}</a>
-							</h1>
-							<h2 class="header-description">
-								{{site.description}}
-							</h2>
+		<div class="main">
+			<header class="header">
+				{% block header %}
+						<div class="header-content">
+							<img class="header-icon" src="{{site.icon}}" alt="{{site.name}}" />
+							<div class="header-titles">
+								<h1 class="header-title" role="banner">
+									<a class="header-title-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+								</h1>
+								<h2 class="header-description">
+									{{site.description}}
+								</h2>
+							</div>
 						</div>
-					</div>
-					<nav id="nav-main" class="nav-main" role="navigation">
-						{% include "menu.twig" with {'menu': menu.get_items} %}
-					</nav><!-- #nav -->
-			{% endblock %}
-		</header>
-
-		<section id="content" role="main" class="content-wrapper">
-			<div class="wrapper {{sidebar_class}}">
-				{% block content %}
-					Sorry, no content
+						<nav id="nav-main" class="nav-main" role="navigation">
+							{% include "menu.twig" with {'menu': top_menu.get_items} %}
+						</nav><!-- #nav -->
 				{% endblock %}
-			</div>
-			{% if sidebar %}
-				<aside class="layout-sidebar">
-					{{sidebar}}
-				</aside>
-			{% endif %}
-		</section>
+			</header>
 
-		{% block footer %}
-			<footer id="footer">
-				{% include 'footer.twig' %}
-			</footer>
-			{{ function('wp_footer') }}
-		{% endblock %}
+			<main id="main-content">
+				<div class="wrapper">
+					{% block content %}
+						Sorry, no content
+					{% endblock %}
+				</div>
+			</main>
+
+			{% block footer %}
+				<footer class="footer">
+					{% include 'footer.twig' %}
+				</footer>
+				{{ function('wp_footer') }}
+			{% endblock %}
+		</div>
+		<div class="nav-mobile-container">
+			<div class="nav-mobile-overlay"></div>
+			<nav class="nav-mobile" role="navigation">
+				{% include "menu-mobile.twig" with {'menu': top_menu.get_items} %}
+			</nav><!-- #nav -->
+		</div>
+		<script
+			src="https://code.jquery.com/jquery-3.2.1.slim.js"
+			integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg="
+			crossorigin="anonymous"></script>
+		<!-- build:js /static/site.js -->
+		<script src="{{site.theme.link}}/static/site.js"></script>
+		<!-- endbuild -->
 	</body>
 </html>

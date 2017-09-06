@@ -1,9 +1,14 @@
 {% extends "base.twig" %}
 
 {% block content %}
+  <div class="featured-images">
+    <img src="{{TimberImage(post.featured_image_1).src|resize(1280)}}" />
+    <img src="{{TimberImage(post.featured_image_2).src|resize(1280)}}" />
+    <img src="{{TimberImage(post.featured_image_3).src|resize(1280)}}" />        
+  </div>
 	<div class="content-wrapper">
-		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-			<section class="article-content page-home">
+		<div>
+			<section class="page-home">
         <div class="page-home-description">
           {{post.description|wpautop}}
         </div>
@@ -22,6 +27,6 @@
           </div>
         </div>
 			</section>
-		</article>
+		</div>
 	</div><!-- /content-wrapper -->
 {% endblock %}
