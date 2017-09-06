@@ -1,0 +1,35 @@
+.tool-pagination {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-bottom: 2rem;
+
+  a {
+    color: $red;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .next, .prev {
+    margin-right: 2rem;
+  }
+
+  .pages {
+    display: flex;
+    
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+
+      .page-number {
+        margin-right: 2rem;
+      }
+
+      .current {
+        color: $black;
+      }
+    }
+  }
+}

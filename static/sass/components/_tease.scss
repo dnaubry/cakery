@@ -1,0 +1,67 @@
+.tease {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin: 2rem 0;
+
+  @include atMedium {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  &-content {
+    // align-self: stretch;
+
+    background-color: #ffffff;
+    border-bottom: 1px dashed $gray-light;  
+
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2rem;
+  }
+
+  &-title {
+    margin-top: 1rem;
+
+    @include atMedium {
+      margin-top: 0;    
+    }
+  }
+
+  &-thumbnail {    
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 300px;
+
+    @include atMedium {
+      width: 384px;   
+      height: 350px;
+    }
+  }
+
+  &-link,
+  .read-more {
+    color: $red;
+    text-decoration: none;
+  }
+
+  .read-more {
+    text-transform: uppercase;
+  }
+
+  &-preview {
+    margin: 0;
+
+    @include atXLarge {
+      width: 70%;
+    }
+  }
+
+  .byline {
+    font-size: .9em;
+    text-align: right;
+
+    margin-bottom: 0;
+  }
+}

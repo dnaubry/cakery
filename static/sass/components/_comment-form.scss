@@ -1,0 +1,79 @@
+.comment-form {
+
+  &-container {    
+    width: 305px;
+    margin: 2rem;
+
+    @include atMedium {
+      width: 705px;
+    }
+  }
+  
+  label {
+    display: block;
+
+    font-size: .8em;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+  }
+
+  input,
+  textarea {
+    background-color: $silver;
+    border: none;
+    border-bottom: 4px solid $gray-medium;
+
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    padding: .25rem;
+
+    &:focus {
+      background-color: #ffffff;
+      outline: none;
+    }
+  }
+
+  input {
+    width: 100%;
+  }
+
+  textarea {
+    width: 100%;
+  }
+
+  .email, .author {
+    display: inline-block;
+
+    width: calc(50% - 2.5px);
+  }
+
+  .btn {
+    font-size: .7em;
+    font-weight: 700;
+    letter-spacing: .05em;    
+    text-transform: uppercase;
+    background-color: transparent;
+    border: 2px solid $black;
+
+    width: 150px;
+    padding: .5rem 0;
+
+    transition: all 0.3s ease;
+
+    @include atMedium {
+      width: 175px;
+    }
+
+    &:hover {
+      color: $silver;
+      background-color: $black;
+    }
+  }
+
+  .btn-container {
+    text-align: right;
+
+    width: 100%;
+  }
+}

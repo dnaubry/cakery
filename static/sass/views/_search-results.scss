@@ -1,0 +1,10 @@
+.search-results {
+  &-title {
+    margin: 2rem;
+
+    span {
+      color: $red;
+      text-transform: uppercase;
+    }
+  }
+}

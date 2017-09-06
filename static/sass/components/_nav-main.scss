@@ -1,0 +1,85 @@
+.nav-main {
+  position: absolute;
+  top: 2.6rem;
+  right: 2rem;
+
+  @include atLarge {
+    position: static;
+    flex: 2;
+    align-self: flex-end;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .menu {
+    display: none;
+    justify-content: flex-end;
+
+    min-height: 0;
+    margin: 0;  
+    padding: 0;
+
+    @include atLarge {
+      display: flex;
+    }
+
+    &-item {
+      list-style: none;
+
+      margin-right: 2rem;
+
+      @include atLarge {
+        display: inline;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      a {
+        text-decoration: none;
+
+        &:hover {
+          border-bottom: 4px solid $red;
+        }
+      }
+    }
+
+    .current-menu-item {
+      a {
+        color: $red;
+      }
+    }
+
+    &-item a,
+    &-mobile-icon span {
+      color: #111111;
+      font-size: .8em;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+
+      padding: .25rem 0;
+    }
+
+    &-mobile-icon {
+      text-align: right;
+      width: 90px;
+
+      @include atLarge {
+        display: none;
+      }
+
+      &:hover, 
+      &:hover * {
+        color: $red;
+        cursor: pointer;
+      }
+
+      span {
+        padding-left: .5rem;
+        font-family: 'Montserrat', sans-serif;
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.nav-footer {
+  flex: 1;
+
+  ul {
+    display: flex;
+    justify-content: flex-end;
+
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-right: 2rem;
+
+      list-style: none;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      a {
+        color: #ffffff;
+        text-decoration: none;
+      }
+    }
+  }
+}

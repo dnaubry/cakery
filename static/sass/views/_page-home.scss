@@ -1,8 +1,18 @@
 .page-home {
   display: flex;
+  flex-direction: column-reverse;
+
+  @include atMedium {
+    flex-direction: row;
+  }
 
   &-description {
     flex: 1;
+    margin-top: 2rem;
+
+    @include atMedium {
+      margin-top: 0;
+    }
   }
 
   &-contact {
@@ -23,6 +33,22 @@
       p {
         margin: 0;
       }
+    }
+  }
+}
+
+.featured-images {
+  display: flex;
+  
+  img {
+    align-self: flex-start;
+    
+    width: calc(100%/3);
+
+    filter: grayscale(1);
+
+    &:hover {
+      filter: none;
     }
   }
 }

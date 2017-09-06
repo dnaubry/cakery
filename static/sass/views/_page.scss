@@ -1,0 +1,15 @@
+.post-type-page {
+
+  .article-h1 {
+    margin-top: 0;
+  }
+
+  p {
+    margin: 0;
+    margin-bottom: 1rem;
+
+    @include atXLarge {
+      width: 70%;
+    }
+  }
+}

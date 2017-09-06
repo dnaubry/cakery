@@ -1,0 +1,92 @@
+.menu-mobile {
+  position: relative;
+  z-index: 10;
+
+  background-color: $silver;
+
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  .menu-item {
+    list-style: none;
+    padding: 1.075rem;
+    font-size: .8em;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: $black;  
+
+    a {
+      color: $black;
+  
+      text-decoration: none;
+
+      &:hover {
+        border-bottom: 4px solid $red;
+      }
+    }
+  }
+}
+
+.nav-mobile-container {
+  animation: fade-in 0.5s ease-in;
+  
+  display: none;
+
+  &-visible {  
+    display: inline-block;
+    position: fixed;
+    right: 0;
+    top:0;
+  }
+}
+
+.nav-mobile-overlay {
+  animation: fade-in 0.3s;
+  
+  display: none;
+
+  &-visible {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 9.5rem;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+
+    background-color: rgba($black, .8);
+    border-right: 4px solid $black;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;  
+  }
+}
+
+.menu-mobile-close {
+  border-bottom: 2px solid $black;
+
+  &:hover {
+    color: $red;
+    cursor: pointer;
+  }
+
+  span {
+    padding-left: .5rem;
+  }
+}
+
+.main-nav-mobile-visible {
+  position: relative;
+  left: -9.5rem;
+  overflow-x: hidden;
+  filter: blur(2px);
+}

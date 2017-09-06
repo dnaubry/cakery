@@ -8,37 +8,44 @@
 
   &-content {
    display: flex;
-   align-items: center;
+   align-items: flex-end;
   }
 
   &-titles {
+    margin-left: .5rem;
   }
       
   &-title {
     margin: 0;
-    width: 200px;
   }
 
   &-title-link {
-    color: #111111;
-    font: 1.5em 'Playfair Display', serif;
-    letter-spacing: .075em;
-    line-height: .9;
+    color: $black;
+    font: 1.2em 'Playfair Display', serif;
+    letter-spacing: .05em;
     text-decoration: none;
+
+    @include atMedium {
+      font-size: 1.5em;
+    }
   }
 
   &-description {
     color: $red;
     font-size: .8em;
-    letter-spacing: .05em;
-    line-height: 1.5;
+    letter-spacing: .15em;
     text-transform: uppercase;
 
     margin: 0;
   }
 
   &-icon {
-    width: 140px;
-    max-height: 140px;
+    width: 100px;
+    height: 100px;
+
+    @include atMedium {
+      width: 140px;
+      height: 140px;
+    }
   }
 }

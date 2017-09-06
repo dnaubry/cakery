@@ -1,0 +1,58 @@
+.menu-type-list {
+  width: 20rem;
+  margin: 0;
+  margin-bottom: 2rem;
+  padding: 0;
+
+  .menu-type-item {
+    display: inline-block;  
+    list-style: none;
+
+    font-size: .9em;
+    font-weight: bold;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    
+    padding-right: 2rem;
+
+    &:hover {
+      color: $red;
+
+      cursor: pointer;
+    }
+
+    &--current {
+      color: $red;
+    }
+  }
+}
+
+.menu-food-drink {
+  margin-bottom: 2rem;
+
+  .table-caption {
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    text-align: left;
+  }
+
+  tr {
+    margin: 0;
+  }
+
+  .menu-item-name {
+    width: 200px;
+    margin-top: .5rem;
+  }
+
+  .menu-item-price {
+    width: 50px;
+    text-align: right;
+  }
+
+  .menu-item-description {
+    font-size: .8em;
+    width: 200px;    
+  }
+}

@@ -1,0 +1,45 @@
+.comment-box {
+  width: 100%;
+
+  &-title {
+    margin-left: 2rem;
+  }
+
+  .blog-comment {
+    background-color: #ffffff;
+    border-bottom: 1px dashed $gray-medium;
+
+    padding: 2rem;
+
+    .author {
+      color: $red;
+      font-weight: 700;
+    }
+
+    .date {
+      color: $gray-medium;
+    }
+
+    p {
+      margin-left: 2rem;
+    }
+  }
+
+  .reply {
+    text-align: right;    
+
+    .comment-reply-link {
+      color: $red;
+      text-decoration: none;
+      text-transform: uppercase;   
+    }
+  }
+
+  .child-comment {
+    margin-left: 4rem;
+  }
+
+  .replies {
+    margin-left: 2rem;
+  }
+}

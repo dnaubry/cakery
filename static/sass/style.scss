@@ -1,0 +1,33 @@
+/*
+ * Theme Name: Cakery
+ * Description: Bakery Theme
+ * Author: Upstatement and Danielle Aubry
+*/
+
+@import '../../node_modules/normalize.scss/normalize';
+
+@import 'helpers/variables';
+@import 'helpers/mixins';
+
+@import 'base/typography';
+@import 'base/global';
+
+@import 'layout/header';
+@import 'layout/footer';
+@import 'layout/content-wrapper';
+@import 'layout/sidebar';
+
+@import 'views/page';
+@import 'views/single';
+@import 'views/page-home';
+@import 'views/page-food-drink';
+@import 'views/search-results';
+
+@import 'components/nav-main';
+@import 'components/nav-footer';
+@import 'components/nav-mobile';
+@import 'components/search-form';
+@import 'components/tease';
+@import 'components/comment-box';
+@import 'components/comment-form';
+@import 'components/pagination';
